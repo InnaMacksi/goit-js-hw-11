@@ -6,6 +6,7 @@ import 'simplelightbox/dist/simple-lightbox.min.css';
 const divGallery = document.querySelector('.gallery');
 const formEl = divGallery.previousElementSibling;
 const loadMoreBtn = divGallery.nextElementSibling;
+const upBtn = document.querySelector('.up');
 
 const pixabayApi = new PixabayAPI();
 
@@ -105,6 +106,20 @@ function markupGallery({
   </a>`
   );
 }
+function handleScrollUp(e) {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth',
+  });
+}
 
+// function handleResetForm(e) {
+//   formEl.reset();
+//   loadMoreBtn.classList.add('is-hidden');
+
+// }
+
+// formEl.addEventListener('focus', handleResetForm)
 formEl.addEventListener('submit', handleSearchImg);
 loadMoreBtn.addEventListener('click', handleLoadMore);
+upBtn.addEventListener('click', handleScrollUp);
