@@ -1,7 +1,7 @@
 import { PixabayAPI } from './fetch';
 import Notiflix from 'notiflix';
-import SimpleLightbox from "simplelightbox";
-import "simplelightbox/dist/simple-lightbox.min.css";
+import SimpleLightbox from 'simplelightbox';
+import 'simplelightbox/dist/simple-lightbox.min.css';
 
 const divGallery = document.querySelector('.gallery');
 const formEl = divGallery.previousElementSibling;
@@ -38,7 +38,7 @@ const handleSearchImg = async event => {
     loadMoreBtn.classList.toggle(
       'is-hidden',
       pixabayApi.page >= Math.ceil(data.totalHits / 40)
-    ); 
+    );
   } catch (error) {
     console.log(error);
   }
@@ -61,7 +61,9 @@ const handleLoadMore = async () => {
     loadMoreBtn.classList.toggle(
       'is-hidden',
       pixabayApi.page >= Math.ceil(data.totalHits / 40)
-    ); 
+    );
+    formEl.reset();
+
     const { height: cardHeight } = document
       .querySelector('.gallery')
       .lastElementChild.getBoundingClientRect();
@@ -86,30 +88,23 @@ function markupGallery({
 }) {
   divGallery.insertAdjacentHTML(
     'beforeend',
-    `<a class ="photo-link"> href="${largeImageURL}">
+    `<a class = "gallery__item" href="${largeImageURL}">
   <div class="photo-card">
-  <img class = "gallery-image" src="${webformatURL}" alt="${tags}" loading="lazy"/>
-  <div class="info">
-    <p class="info-item">
-      <b>Likes</b>
-       ${likes}
-    </p>
-    <p class="info-item">
-      <b>Views</b>
-       ${views}
-    </p>
-    <p class="info-item">
-      <b>Comments</b>
-       ${comments}
-    </p>
-    <p class="info-item">
-      <b>Downloads</b>
-       ${downloads}
-    </p>
-  </div>
+  <img class = "gallery__image" src="${webformatURL}" alt="${tags}" loading="lazy" title="${tags}" />
+  <ul class="info">
+    <li class="info-item"><p class="info-value">
+      <b>Likes</b><span>${likes}</span></p></li>
+    <li class="info-item"><p class="info-value">
+      <b>Views</b><span>${views}</span></p></li>
+    <li class="info-item"><p class="info-value">
+      <b>Comments</b><span>${comments}</span></p></li>
+    <li class="info-item"><p class="info-value">
+      <b>Downloads</b><span>${downloads}</span></p></li>
+  </ul>
   </div>
   </a>`
   );
 }
+
 formEl.addEventListener('submit', handleSearchImg);
 loadMoreBtn.addEventListener('click', handleLoadMore);
