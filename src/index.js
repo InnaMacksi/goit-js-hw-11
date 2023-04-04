@@ -112,14 +112,6 @@ function handleScrollUp(e) {
     behavior: 'smooth',
   });
 }
-
-// function handleResetForm(e) {
-//   formEl.reset();
-//   loadMoreBtn.classList.add('is-hidden');
-
-// }
-
-// formEl.addEventListener('focus', handleResetForm)
 formEl.addEventListener('submit', handleSearchImg);
 loadMoreBtn.addEventListener('click', handleLoadMore);
 upBtn.addEventListener('click', handleScrollUp);
