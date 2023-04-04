@@ -5,9 +5,7 @@
 body {
   height: 100vh;
   margin: 0;
-  background-color: #f6f6f9;
-  color: #050505;
-  line-height: 1.5;
+  background-color: #ffffff;
 }
 .gallery {
   display: grid;
@@ -61,7 +59,7 @@ body {
 }
 
 .info-item {
-  color: black;
+  color: rgb(68, 142, 128);
   text-align: left;
 }
 .photo-card {
@@ -75,7 +73,11 @@ body {
   font-size: 14px;
   font-weight: normal;
 }
-
+.section{
+  padding: 20px;
+  margin-left: auto;
+    margin-right: auto;
+}
 .load-more {
   display: block;
   margin: auto;
@@ -94,13 +96,19 @@ body {
 .is-hidden {
   display: none;
 }
-.search-form {
+.header{
   position: fixed;
   top: 0%;
-  right: 50%;
   z-index: 5;
-  // width: 100%;
-  // display: flex;
+  width: 100%;
+  display: flex;
+  background-color: #a6d2c6c2;
+    border: 1 solid #08e1c0;
+    box-shadow: 0 0 15px #4eaca2;
+}
+.search-form {
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .search-form input {

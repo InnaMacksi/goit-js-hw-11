@@ -4,7 +4,8 @@ import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
 const divGallery = document.querySelector('.gallery');
-const formEl = divGallery.previousElementSibling;
+const formEl = document.querySelector('.search-form');
+
 const loadMoreBtn = divGallery.nextElementSibling;
 const upBtn = document.querySelector('.up');
 
