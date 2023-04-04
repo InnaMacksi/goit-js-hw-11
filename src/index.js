@@ -20,8 +20,8 @@ let lightbox = new SimpleLightbox('.gallery a', {
 loadMoreBtn.classList.add('is-hidden');
 const handleSearchImg = async event => {
   event.preventDefault();
-
-  const searchTerm = formEl.elements.searchQuery.value;
+  pixabayApi.page = 1;
+  const searchTerm = formEl.elements.searchQuery.value.trim();
   pixabayApi.q = searchTerm;
   try {
     const { data } = await pixabayApi.getImage();
