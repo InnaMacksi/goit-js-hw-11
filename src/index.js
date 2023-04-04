@@ -29,6 +29,7 @@ const handleSearchImg = async event => {
       Notiflix.Notify.failure(
         'Sorry, there are no images matching your search query. Please try again.'
       );
+      formEl.reset();
       return;
     }
     divGallery.innerHTML = '';
@@ -55,6 +56,7 @@ const handleLoadMore = async () => {
       Notiflix.Notify.info(
         "We're sorry, but you've reached the end of search results."
       );
+      formEl.reset();
     }
     data.hits.map(item => {
       markupGallery(item);
